@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 33
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api files('libs/core-3.2.0.jar')
+    api files('libs/mimo_sdk.aar')
+    api files('libs/alipay-sdk-android-15.8.09.aar')
+    api files('libs/gson-2.8.6.jar')
+    api files('libs/mioauth-3.4.3.aar')
+    api files('libs/onetrack-sdk-2.2.1.jar')
+//    api fileTree(dir: 'libs', include: ['*.aar'])
+//    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    //注意：以下5个库必须要引入
+    api 'androidx.appcompat:appcompat:1.4.1'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+//    implementation 'com.google.code.gson:gson:2.8.5'
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+}
